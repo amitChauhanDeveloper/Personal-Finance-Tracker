@@ -1,0 +1,103 @@
+/* dashboard.component.css */
+.dashboard {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.summary div {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f4f4f4;
+}
+
+table td {
+  border-top: 1px solid #ddd;
+}
+
+button.delete-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.delete-btn:hover {
+  background-color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .summary {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .summary div {
+    margin-bottom: 10px;
+  }
+
+  .dashboard {
+    padding: 15px;
+  }
+
+  table th, table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button.delete-btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .chart {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary div {
+    font-size: 16px;
+  }
+
+  table th, table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  button.delete-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

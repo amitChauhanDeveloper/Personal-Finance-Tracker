@@ -1,0 +1,30 @@
+<!-- dashboard.component.html -->
+<div class="dashboard">
+  <h1>Personal Finance Tracker</h1>
+  <app-add-transaction ></app-add-transaction>
+  <div class="summary">
+    <div><strong>Total Income:</strong> {{ totalIncome | currency:'INR' }}</div>
+    <div><strong>Total Expense:</strong> {{ totalExpense | currency:'INR' }}</div>
+    <div><strong>Balance:</strong> {{ balance | currency:'INR' }}</div>
+  </div>
+
+  <h2>Transaction List</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let txn of transactions">
+      <td>{{ txn.date  | date:'dd-MM-yy'}}</td>
+      <td>{{ txn.type }}</td>
+      <td>{{ txn.category }}</td>
+      <td>{{ txn.amount | currency:'INR' }}</td>
+      <td>
+        <button (click)="deleteTransaction(txn.id)" class="delete-btn">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

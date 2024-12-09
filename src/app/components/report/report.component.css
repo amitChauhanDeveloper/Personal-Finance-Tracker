@@ -1,0 +1,34 @@
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart {
+  height: 300px; /* Default height */
+  width: 90%; /* Ensures responsiveness */
+  max-width: 800px; /* Prevents it from being too large */
+  margin: 0 auto;
+  display: block; /* Centers the canvas inside its container */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chart {
+    height: 250px; /* Slightly smaller on tablets */
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart {
+    height: 200px; /* Smaller height for mobile screens */
+    width: 100%; /* Takes full width of the container */
+  }
+}
