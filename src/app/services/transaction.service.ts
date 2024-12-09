@@ -20,12 +20,6 @@ export class TransactionService {
     return this.transactions;
   }
 
-  // addTransaction(transaction: Transaction): void {
-  //   transaction.id = new Date().getTime(); // Set a unique ID for the transaction
-  //   this.transactions.push(transaction);
-  //   this.updateLocalStorage();
-  // }
-
   addTransaction(transaction: Transaction): void {
     const existingTransaction = this.transactions.find(txn => txn.category === transaction.category);
 

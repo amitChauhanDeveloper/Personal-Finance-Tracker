@@ -38,6 +38,8 @@ export class ReportComponent implements AfterViewInit {
     const ctx = document.getElementById('chart') as HTMLCanvasElement;
 
     if (ctx) {
+      const randomColors = Object.keys(expenseCategories).map(() => this.getRandomColor()); // Generate random colors here
+
       new Chart(ctx, {
         type: 'pie',
         data: {
@@ -45,7 +47,7 @@ export class ReportComponent implements AfterViewInit {
           datasets: [
             {
               data: Object.values(expenseCategories),
-              backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56'],
+              backgroundColor: randomColors, // Use the generated random colors here
             },
           ],
         },
@@ -53,5 +55,14 @@ export class ReportComponent implements AfterViewInit {
     } else {
       console.error("Canvas element not found.");
     }
+  }
+
+  getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 }
