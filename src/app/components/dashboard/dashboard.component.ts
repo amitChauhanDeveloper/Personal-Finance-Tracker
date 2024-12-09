@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     this.balance = this.totalIncome - this.totalExpense;
   }
 
-   // Method to sort transactions by date in descending order
+   // Method to sort transactions by date in ASC order
    sortTransactionsByDate(): void {
     this.sortedTransactions = this.transactions.sort((a, b) => {
       const dateA = new Date(a.date).getTime();
@@ -52,5 +52,10 @@ export class DashboardComponent implements OnInit {
     this.transactionService.deleteTransaction(id);
     this.transactions = this.transactionService.getTransactions(); // Refresh the list
     this.calculateTotals(); // Recalculate totals
+  }
+
+  clearAll():void{
+    localStorage.clear()
+    window.location.reload();
   }
 }

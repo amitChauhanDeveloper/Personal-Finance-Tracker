@@ -8,7 +8,11 @@
     <div><strong>Balance:</strong> {{ balance | currency:'INR' }}</div>
   </div>
 
-  <h2>Transaction List</h2>
+  <div class="transaction-list-header">
+    <h2>Transaction List</h2>
+    <button (click)="clearAll()" class="clear-all-btn">Clear All</button>
+  </div>
+  
   <table>
     <tr>
       <th>Date</th>

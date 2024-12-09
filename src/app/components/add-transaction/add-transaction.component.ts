@@ -29,6 +29,7 @@ export class AddTransactionComponent {
         date: this.date,
       });
       this.onAdd.emit();
+      window.location.reload();
     }
   }
 }

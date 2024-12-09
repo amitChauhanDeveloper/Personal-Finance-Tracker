@@ -20,9 +20,23 @@ export class TransactionService {
     return this.transactions;
   }
 
+  // addTransaction(transaction: Transaction): void {
+  //   transaction.id = new Date().getTime(); // Set a unique ID for the transaction
+  //   this.transactions.push(transaction);
+  //   this.updateLocalStorage();
+  // }
+
   addTransaction(transaction: Transaction): void {
-    transaction.id = new Date().getTime(); // Set a unique ID for the transaction
-    this.transactions.push(transaction);
+    const existingTransaction = this.transactions.find(txn => txn.category === transaction.category);
+
+    if (existingTransaction) {
+      existingTransaction.amount += transaction.amount; // Update the amount
+      existingTransaction.date = transaction.date; //Update date also
+    } else {
+      transaction.id = new Date().getTime(); // Set a unique ID for the transaction
+      this.transactions.push(transaction); // Add new transaction
+    }
+
     this.updateLocalStorage();
   }
 

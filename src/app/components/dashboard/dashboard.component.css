@@ -101,3 +101,39 @@ button.delete-btn:hover {
     padding: 4px 8px;
   }
 }
+
+.transaction-list-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.transaction-list-header h2 {
+  margin: 0; 
+  font-size: 1.5rem;
+}
+
+.clear-all-btn {
+  background-color: #1b6bd3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.clear-all-btn:hover {
+  background-color: #45a049;
+}
+
+.clear-all-btn:active {
+  transform: scale(0.98);
+}
+
+.clear-all-btn:focus {
+  outline: 2px solid #4CAF50;
+  outline-offset: 2px;
+}
+
