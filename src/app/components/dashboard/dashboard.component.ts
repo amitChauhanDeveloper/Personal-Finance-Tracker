@@ -124,6 +124,7 @@ export class DashboardComponent implements OnInit {
   
     // Save the PDF
     doc.save('transactions.pdf');
+    window.location.reload();
   }
 
   // Export to Excel functionality
@@ -160,6 +161,7 @@ export class DashboardComponent implements OnInit {
       link.href = URL.createObjectURL(blob);
       link.download = 'transactions.xlsx';
       link.click();
+      window.location.reload();
     });
   }
 
