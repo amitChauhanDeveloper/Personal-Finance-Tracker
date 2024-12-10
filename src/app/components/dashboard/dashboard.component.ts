@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import jsPDF from 'jspdf';  
 import autoTable from 'jspdf-autotable'; 
 import { format } from 'date-fns';
-import * as XLSX from 'xlsx';
+import * as ExcelJS from 'exceljs';
 
 @Component({
   selector: 'app-dashboard',
@@ -128,21 +128,40 @@ export class DashboardComponent implements OnInit {
 
   // Export to Excel functionality
   exportToExcel(): void {
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.transactions.map(txn => ({
-      Date: format(new Date(txn.date), 'dd-MM-yyyy'),
-      Type: txn.type,
-      Category: txn.category,
-      Amount: txn.amount
-    })));
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Transactions');
     
-    const workbook: XLSX.WorkBook = {
-      Sheets: { 'Transactions': worksheet },
-      SheetNames: ['Transactions']
-    };
+    // Define columns with width and header text
+    worksheet.columns = [
+      { header: 'Date', key: 'date', width: 15 },
+      { header: 'Type', key: 'type', width: 10 },
+      { header: 'Category', key: 'category', width: 20 },
+      { header: 'Amount', key: 'amount', width: 15 }
+    ];
+
+    // Make the header bold
+    worksheet.getRow(1).font = { bold: true };
+
+    // Map transactions to rows with Rupee symbol for amount
+    const rows = this.transactions.map(txn => ({
+      date: format(new Date(txn.date), 'dd-MM-yyyy'),
+      type: txn.type,
+      category: txn.category,
+      amount: '₹ ' + txn.amount.toFixed(2)  // Add the Rupee symbol and format the amount to 2 decimal places
+    }));
+
+    // Add rows to the worksheet
+    worksheet.addRows(rows);
     
-    // Export as Excel file
-    XLSX.writeFile(workbook, 'transactions.xlsx');
+    // Write the buffer to file and trigger the download
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'transactions.xlsx';
+      link.click();
+    });
   }
-  
+
   
 }
