@@ -107,7 +107,8 @@ button.next-page-btn:hover {
 
 button.download-pdf-btn,
 button.clear-all-btn,
-button.download-excel-btn {
+button.download-excel-btn,
+button.create-trans-btn {
   background-color: #1b6bd3;
   color: white;
   padding: 10px 20px;
@@ -120,26 +121,30 @@ button.download-excel-btn {
 
 button.download-pdf-btn,
 button.clear-all-btn,
-button.download-excel-btn {
+button.download-excel-btn,
+button.create-trans-btn {
   background-color: #1b6bd3;
   color: white;
 }
 
 button.download-pdf-btn:hover,
 button.clear-all-btn:hover,
-button.download-excel-btn:hover {
+button.download-excel-btn:hover,
+button.create-trans-btn:hover {
   background-color: #45a049;
 }
 
 button.download-pdf-btn:active,
 button.clear-all-btn:active,
-button.download-excel-btn:active {
+button.download-excel-btn:active,
+button.create-trans-btn:active {
   transform: scale(0.98);
 }
 
 button.download-pdf-btn:focus,
 button.clear-all-btn:focus,
-button.download-excel-btn:focus {
+button.download-excel-btn:focus
+button.create-trans-btn:focus {
   outline: 2px solid #4CAF50;
   outline-offset: 2px;
 }
@@ -214,7 +219,8 @@ button.download-excel-btn:focus {
 
   button.download-pdf-btn,
   button.clear-all-btn,
-  button.download-excel-btn {
+  button.download-excel-btn,
+  button.create-trans-btn {
     width: 100%; 
     margin-left: 0;
     margin-bottom: 10px;
@@ -224,35 +230,11 @@ button.download-excel-btn:focus {
 @media (max-width: 480px) {
   button.download-pdf-btn,
   button.clear-all-btn,
-  button.download-excel-btn {
+  button.download-excel-btn,
+  button.create-trans-btn {
     font-size: 14px;
     padding: 8px 16px; 
   }
-}
-
-.create-trans-btn{
-  background-color: #1b6bd3;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-left: 3px;
-  float: right;
-}
-
-.create-trans-btn {
-  background-color: #1b6bd3;
-  color: white;
-}
-
-.create-trans-btn:hover{
-  background-color: #45a049;
-}
-
-.create-trans-btn:active{
-  transform: scale(0.98);
 }
 
 
