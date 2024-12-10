@@ -5,30 +5,39 @@
   margin: 20px auto;
   padding: 10px;
   max-width: 100%;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
 }
 
 .chart {
-  height: 300px; /* Default height */
-  width: 90%; /* Ensures responsiveness */
-  max-width: 800px; /* Prevents it from being too large */
+  height: 300px;
+  width: 90%; 
+  max-width: 600px; 
   margin: 0 auto;
-  display: block; /* Centers the canvas inside its container */
+  display: block;
 }
 
-/* Responsive Design */
+@media (max-width: 1024px) {
+  .chart {
+    height: 280px; 
+    width: 95%;
+    max-width: 500px;
+  }
+}
+
 @media (max-width: 768px) {
   .chart {
-    height: 250px; /* Slightly smaller on tablets */
+    height: 250px; 
     width: 95%;
+    max-width: 400px;
   }
 }
 
 @media (max-width: 480px) {
   .chart {
-    height: 200px; /* Smaller height for mobile screens */
-    width: 100%; /* Takes full width of the container */
+    height: 200px;
+    width: 100%; 
   }
 }
