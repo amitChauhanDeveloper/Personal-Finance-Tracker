@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 5;
   searchText: string = '';
+  isAddTransactionVisible: boolean = false;
 
   constructor(private transactionService: TransactionService) {}
 
@@ -32,6 +33,14 @@ export class DashboardComponent implements OnInit {
     this.transactions = this.transactionService.getTransactions();
     this.sortTransactionsByDate();
     this.calculateTotals();
+  }
+
+  toggleAddTransaction() {
+    this.isAddTransactionVisible = !this.isAddTransactionVisible;
+  }
+
+  onTransactionAdded(): void {
+    this.isAddTransactionVisible = false;
   }
 
   calculateTotals(): void {

@@ -91,14 +91,13 @@ button.next-page-btn:hover {
   background-color: #45a049;
 }
 
-/* Search Input */
 .transaction-list-header input[type='text'] {
+  width: 100%;
   padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  margin-right: 10px;
-  width: 200px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 .transaction-list-header input[type='text']:focus {
@@ -147,7 +146,6 @@ button.download-excel-btn:focus {
 
 .button-container {
   display: flex;
-  /* float: right; */
   justify-content: flex-end;
   margin-top: 20px;
 }
@@ -230,6 +228,31 @@ button.download-excel-btn:focus {
     font-size: 14px;
     padding: 8px 16px; 
   }
+}
+
+.create-trans-btn{
+  background-color: #1b6bd3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 3px;
+  float: right;
+}
+
+.create-trans-btn {
+  background-color: #1b6bd3;
+  color: white;
+}
+
+.create-trans-btn:hover{
+  background-color: #45a049;
+}
+
+.create-trans-btn:active{
+  transform: scale(0.98);
 }
 
 

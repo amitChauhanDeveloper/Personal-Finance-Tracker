@@ -1,6 +1,6 @@
 <div class="dashboard">
   <h1>Personal Finance Tracker</h1>
-  <app-add-transaction ></app-add-transaction>
+
   <div class="summary">
     <div><strong>Total Income:</strong> {{ totalIncome | currency:'INR' }}</div>
     <div><strong>Total Expense:</strong> {{ totalExpense | currency:'INR' }}</div>
@@ -8,7 +8,11 @@
   </div>
 
   <div class="transaction-list-header">
-    <h2>Transaction List</h2>
+    <h2>Transaction List 
+      <button class="create-trans-btn" (click)="toggleAddTransaction()">
+        {{ isAddTransactionVisible ? 'Cancel Transaction' : 'Create Transaction' }}
+      </button>
+    </h2>
     <input *ngIf="transactions.length > 0" type="text" [(ngModel)]="searchText" placeholder="Search transactions" />
     <div class="button-container" *ngIf="transactions.length > 0">
       <button (click)="clearAll()" class="clear-all-btn">Clear All</button>
@@ -16,6 +20,11 @@
       <button (click)="exportToExcel()" class="download-excel-btn">Export to Excel</button> 
     </div>
   </div>
+
+   <!-- Add Transaction Form -->
+   <div *ngIf="isAddTransactionVisible">
+     <app-add-transaction (transactionAdded)="onTransactionAdded()"></app-add-transaction>
+   </div>
 
   <table>
     <tr>
