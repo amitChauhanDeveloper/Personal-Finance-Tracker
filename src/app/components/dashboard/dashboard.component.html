@@ -10,12 +10,12 @@
   <div class="transaction-list-header">
     <h2>Transaction List</h2>
     <input *ngIf="transactions.length > 0" type="text" [(ngModel)]="searchText" placeholder="Search transactions" />
-    <div class="button-container" *ngIf="transactions.length > 0">
+    <div class="button-container">
       <button (click)="toggleAddTransaction()" class="create-trans-btn">
         {{ isAddTransactionVisible ? 'Cancel Transaction' : 'Create Transaction' }}</button>
-      <button (click)="downloadPDF()" class="download-pdf-btn">Download PDF</button>
-      <button (click)="exportToExcel()" class="download-excel-btn">Export to Excel</button> 
-      <button (click)="clearAll()" class="clear-all-btn">Clear All</button>
+      <button (click)="downloadPDF()" class="download-pdf-btn" *ngIf="transactions.length > 0">Download PDF</button>
+      <button (click)="exportToExcel()" class="download-excel-btn" *ngIf="transactions.length > 0">Export to Excel</button> 
+      <button (click)="clearAll()" class="clear-all-btn" *ngIf="transactions.length > 0">Clear All</button>
     </div>
   </div>
 
