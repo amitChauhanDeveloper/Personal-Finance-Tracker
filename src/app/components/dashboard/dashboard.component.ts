@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import jsPDF from 'jspdf';  
 import autoTable from 'jspdf-autotable'; 
 import { format } from 'date-fns';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-dashboard',
@@ -123,6 +124,24 @@ export class DashboardComponent implements OnInit {
   
     // Save the PDF
     doc.save('transactions.pdf');
+  }
+
+  // Export to Excel functionality
+  exportToExcel(): void {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.transactions.map(txn => ({
+      Date: format(new Date(txn.date), 'dd-MM-yyyy'),
+      Type: txn.type,
+      Category: txn.category,
+      Amount: txn.amount
+    })));
+    
+    const workbook: XLSX.WorkBook = {
+      Sheets: { 'Transactions': worksheet },
+      SheetNames: ['Transactions']
+    };
+    
+    // Export as Excel file
+    XLSX.writeFile(workbook, 'transactions.xlsx');
   }
   
   
