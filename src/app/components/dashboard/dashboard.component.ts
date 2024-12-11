@@ -55,12 +55,12 @@ export class DashboardComponent implements OnInit {
     this.balance = this.totalIncome - this.totalExpense;
   }
 
-   // Method to sort transactions by date in ASC order
+   // Method to sort transactions by date in DSC order
    sortTransactionsByDate(): void {
     this.sortedTransactions = this.transactions.sort((a, b) => {
       const dateA = new Date(a.date).getTime();
       const dateB = new Date(b.date).getTime();
-      return dateA - dateB; // Sort in ASC order
+      return dateB - dateA; // Sort in DSC order
     });
   }
   
